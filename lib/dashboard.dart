@@ -22,7 +22,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             // Gradient AppBar
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+              height: screenWidth*0.2,
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.purple, Colors.pink],
@@ -75,114 +76,123 @@ class _DashboardScreenState extends State<DashboardScreen> {
             const SizedBox(height: 10),
 
 
-            // User Info Card
-            Card(
-              
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              // elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Row(
-                      // mainAxisAlignment: MainAxisAlignment.start,
-                      // crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const CircleAvatar(
-                          radius: 50,
-                          backgroundImage: AssetImage('assets/photo.jpeg'),
-                        ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            const Text(
-                              "Kriti Saxsena",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black,
-                              ),
+            Container(
+              width: screenWidth*0.9,
+              height: screenHeight*0.33,
+              child: Card(
+                
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                // elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    children: [
+                    const  Row(
+                        
+                      
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: const CircleAvatar(
+                              radius: 50,
+                              backgroundImage: AssetImage('assets/photo.jpeg'),
                             ),
-                            const Text(
-                              "Businessman",
-                              style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black,
+                          ),
+                          const SizedBox(width: 10),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              const Text(
+                                "Kriti Saxsena",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                ),
                               ),
-                            ),
-                          ],
+                              const Text(
+                                "Businessman",
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Divider(height: 6),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton.icon(
+                        onPressed: () {
+                          // Share QR Code
+                        },
+                        icon: const Icon(Icons.remove_red_eye, size: 18, color: Colors.black),
+                        label: const Text("View",style: TextStyle(color: Colors.black)),
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                      
                         ),
-                      ],
-                    ),
-                    const Divider(height: 20),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ElevatedButton.icon(
-                      onPressed: () {
-                        // Share QR Code
-                      },
-                      icon: const Icon(Icons.remove_red_eye, size: 18, color: Colors.black),
-                      label: const Text("View",style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                    
                       ),
-                    ),
-                       ElevatedButton.icon(
-                      onPressed: () {
-                      },
-                      icon: const Icon(Icons.share, size: 18, color: Colors.black),
-                      label: const Text("Share",style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                    
+                         ElevatedButton.icon(
+                        onPressed: () {
+                        },
+                        icon: const Icon(Icons.share, size: 18, color: Colors.black),
+                        label: const Text("Share",style: TextStyle(color: Colors.black)),
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                      
+                        ),
                       ),
-                    ),
-                      ],
-                    ),
-                  ],
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 10),
 
-            // QR Code Card
-            Card(
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Column(
-                  children: [
-                    Container(
-                      height: 150,
-                      width: 150,
-                      child: SvgPicture.asset('assets/qr_code.svg',
-                      // fit: BoxFit.contain,
-                      ), 
-                    ),
-                    const Divider(height: 15),
-                    ElevatedButton.icon(
-                      onPressed: () {
-                        // Share QR Code
-                      },
-                      icon: const Icon(Icons.share, size: 18, color: Colors.black),
-                      label: const Text("Share",style: TextStyle(color: Colors.black)),
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                    
+            Container(
+              width: screenWidth*0.9,
+              height: screenHeight*0.33,
+              child: Card(
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 120,
+                        width: 120,
+                        child: SvgPicture.asset('assets/qr_code.svg',
+                        // fit: BoxFit.contain,
+                        ), 
                       ),
-                    ),
-                  ],
+                      const Divider(height: 6),
+                      ElevatedButton.icon(
+                        onPressed: () {
+                          // Share QR Code
+                        },
+                        icon: const Icon(Icons.share, size: 18, color: Colors.black),
+                        label: const Text("Share",style: TextStyle(color: Colors.black)),
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                      
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
