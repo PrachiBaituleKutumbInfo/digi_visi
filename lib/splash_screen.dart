@@ -17,105 +17,90 @@ class _SplashScreenState extends State<SplashScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 228, 224, 224), // Background color
-      appBar: AppBar(
-        backgroundColor: Colors.transparent, // Transparent AppBar
-        elevation: 0,
-      ),
+      backgroundColor: const Color.fromARGB(255, 228, 224, 224), // Background color
+
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Title Text
-            const Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.0),
-              child: Text(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Title Text
+              Text(
                 'Scale Up Your Connection',
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Colors.purple,
                 ),
                 textAlign: TextAlign.center,
               ),
-            ),
-            SizedBox(height: 20),
-            Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Container(
-                  height: screenHeight * 0.6,
-                  width: screenWidth,
-                  child: SvgPicture.asset(
-                    'assets/connections.svg',
-                    fit: BoxFit.contain,
-                  ),
-                ),
-                const Column(
-                  children: [
-                    DigiVisi(
-                      'Digital',
-                    ),
-                    SizedBox(height: 5.0),
-                    DigiVisi('Visiting'),
-                    SizedBox(height: 5.0),
-                  ],
-                ),
-              ],
-            ),
+              SizedBox(height: screenHeight * 0.02),
 
-            SizedBox(height: 30),
-
-            // Rectangular Button with Gradient
-            Container(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16), // Adds padding
-                  width: screenWidth,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Colors.purple, Colors.pink],
-                      begin: Alignment.centerLeft,
-                      end: Alignment.centerRight,
+              // SVG Image with DigiVisi
+              Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  SizedBox(
+                    height: screenHeight * 0.6,
+                    child: SvgPicture.asset(
+                      'assets/connections.svg',
+                      fit: BoxFit.contain,
                     ),
-                    borderRadius: BorderRadius.circular(8),
                   ),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => LoginScreen(),
-                        ),
-                      );
-                      // Handle button press
-                    },
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                          vertical: 16), // Vertical padding
-                      backgroundColor:
-                          Colors.transparent, // Transparent for gradient
-                      shadowColor: Colors.transparent, // Removes shadow
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                            8), // Slightly rounded corners
+                  const Column(
+                    children: [
+                      DigiVisi('Digital'), // Custom Widget
+                      SizedBox(height: 5.0),
+                      DigiVisi('Visiting'), // Custom Widget
+                      SizedBox(height: 5.0),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: screenHeight * 0.03),
+
+              // "Get Started" Button with Gradient
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Colors.purple, Colors.pink],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const LoginScreen(),
                       ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(
+                        vertical: screenHeight * 0.02), // Responsive padding
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
                     ),
-                    child: Text(
-                      'Get Started',
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                  ),
+                  child: Text(
+                    'Get Started',
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.025,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
                     ),
                   ),
                 ),
               ),
-            ),
-
-            SizedBox(height: 20),
-          ],
+              SizedBox(height: screenHeight * 0.03),
+            ],
+          ),
         ),
       ),
     );

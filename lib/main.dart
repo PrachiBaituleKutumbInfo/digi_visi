@@ -12,13 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home:  SplashScreen(
-      // backgroundColor: Color.fromARGB(255, 228, 224, 224), // Background color
-        
-      ),
-      
-     
-      
+      home: SplashScreen(
+          //  backgroundColor: Color.fromARGB(255, 228, 224, 224), // Background color
+
+          ),
     );
   }
 }
