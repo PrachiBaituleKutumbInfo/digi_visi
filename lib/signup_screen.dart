@@ -148,50 +148,52 @@ class _SignupScreenState extends State<SignupScreen> {
 
               // Join Button
               // Join Button
-Container(
-  width: double.infinity,
-  decoration: BoxDecoration(
-    gradient: const LinearGradient(
-      colors: [Colors.purple, Colors.pink],
-      begin: Alignment.centerLeft,
-      end: Alignment.centerRight,
-    ),
-    borderRadius: BorderRadius.circular(8),
-  ),
-  child: ElevatedButton(
-    onPressed: () {
-      if (_isChecked) {
-        // Navigate to the next page
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const DashboardScreen(),
-          ),
-        );
-      } else {
-        // Show a snackbar if the checkbox is not selected
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Please agree to the User Agreement and Privacy Policy to proceed.'),
-            backgroundColor: Colors.blueGrey,
-          ),
-        );
-      }
-    },
-    style: ElevatedButton.styleFrom(
-      backgroundColor: Colors.transparent,
-      shadowColor: Colors.transparent,
-      padding: EdgeInsets.symmetric(vertical: screenHeight * 0.02),
-    ),
-    child: Text(
-      'Join Digi-Visi',
-      style: TextStyle(
-        fontSize: screenHeight * 0.025,
-        fontWeight: FontWeight.bold,
-        color: Colors.white,
-      ),
-    ),
-  ),
-),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Colors.purple, Colors.pink],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
+                  ),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_isChecked) {
+                      // Navigate to the next page
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const DashboardScreen(),
+                        ),
+                      );
+                    } else {
+                      // Show a snackbar if the checkbox is not selected
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                              'Please agree to the User Agreement and Privacy Policy to proceed.'),
+                          backgroundColor: Colors.blueGrey,
+                        ),
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding:
+                        EdgeInsets.symmetric(vertical: screenHeight * 0.02),
+                  ),
+                  child: Text(
+                    'Join Digi-Visi',
+                    style: TextStyle(
+                      fontSize: screenHeight * 0.025,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
 
               SizedBox(height: screenHeight * 0.03),
 

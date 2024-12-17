@@ -1,3 +1,4 @@
+import 'package:digi_visi/update_info_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -9,21 +10,37 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
+  int _currentIndex = 0; // Declare _currentIndex at class level
+
+  void _onBottomNavTap(int index) {
+    print("BottomNav Index: $index"); // Debug print
+    if (index == 2) {
+      // print("Navigating to UpdateInfoScreen");
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const UpdateInfoScreen()),
+      );
+    } else {
+      setState(() {
+        var _currentIndex = index;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 228, 224, 224), // Background color
-      body: SingleChildScrollView(
-        child: Column(
+      backgroundColor:
+          const Color.fromARGB(255, 228, 224, 224), // Background color
+      body: Stack(children: [
+        Column(
           children: [
-            // Gradient AppBar
             Container(
               width: double.infinity,
-              height: screenWidth*0.2,
-              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              height: 50,
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [Colors.purple, Colors.pink],
@@ -34,19 +51,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Kriti Saxsena",
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  
+                  Padding(
+                    padding: const EdgeInsets.only(left: 3.0),
+                    child: const Text(
+                      "Kriti Saxsena",
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  const Text(
-                    "Id: dg2023/01A",
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.white,
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Text(
+                      "Id: dg2023/01A",
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                   IconButton(
@@ -60,9 +84,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
             // Welcome Text
             const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Align(
-                alignment: Alignment.centerLeft,
+                alignment: Alignment.topLeft,
                 child: Text(
                   "Hello Kriti !",
                   style: TextStyle(
@@ -74,121 +98,112 @@ class _DashboardScreenState extends State<DashboardScreen> {
               ),
             ),
             const SizedBox(height: 10),
-
-
-            Container(
-              width: screenWidth*0.9,
-              height: screenHeight*0.33,
-              child: Card(
-                
-                margin: const EdgeInsets.symmetric(horizontal: 15),
-                // elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    children: [
-                    const  Row(
-                        
-                      
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: const CircleAvatar(
-                              radius: 50,
-                              backgroundImage: AssetImage('assets/photo.jpeg'),
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              const Text(
-                                "Kriti Saxsena",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              const Text(
-                                "Businessman",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                      const Divider(height: 6),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton.icon(
-                        onPressed: () {
-                          // Share QR Code
-                        },
-                        icon: const Icon(Icons.remove_red_eye, size: 18, color: Colors.black),
-                        label: const Text("View",style: TextStyle(color: Colors.black)),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                      
-                        ),
-                      ),
-                         ElevatedButton.icon(
-                        onPressed: () {
-                        },
-                        icon: const Icon(Icons.share, size: 18, color: Colors.black),
-                        label: const Text("Share",style: TextStyle(color: Colors.black)),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                      
-                        ),
-                      ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(height: 10),
-
-            Container(
-              width: screenWidth*0.9,
-              height: screenHeight*0.33,
+            Padding(
+              padding: const EdgeInsets.all(20.0),
               child: Card(
                 margin: const EdgeInsets.symmetric(horizontal: 15),
                 elevation: 4,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(12),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(15),
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 70,
+                            backgroundImage: AssetImage('assets/photo.jpeg'),
+                          ),
+                          SizedBox(width: 30.0),
+                          Align(
+                            alignment: Alignment.bottomRight,
+                            child: Column(
+                              // crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Kriti Saxsena',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                SizedBox(height: 8),
+                                Text(
+                                  'Businessman',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.normal,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 10),
+                      const Divider(height: 1),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.visibility,
+                              color: Colors.black,
+                            ),
+                            label: Text(
+                              "View",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                          TextButton.icon(
+                            onPressed: () {},
+                            icon: Icon(Icons.share, color: Colors.black),
+                            label: Text(
+                              "Share",
+                              style: TextStyle(color: Colors.black),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            
+
+                       const SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Card(
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                elevation: 4,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [
                       Container(
-                        height: 120,
-                        width: 120,
-                        child: SvgPicture.asset('assets/qr_code.svg',
-                        // fit: BoxFit.contain,
-                        ), 
+                        height: 150,
+                        width: 150,
+                        child: SvgPicture.asset(
+                          'assets/qr_code.svg',
+                          fit: BoxFit.contain,
+                        ),
                       ),
-                      const Divider(height: 6),
-                      ElevatedButton.icon(
-                        onPressed: () {
-                          // Share QR Code
-                        },
-                        icon: const Icon(Icons.share, size: 18, color: Colors.black),
-                        label: const Text("Share",style: TextStyle(color: Colors.black)),
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                      
+                      const Divider(height: 1),
+                      TextButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.share, color: Colors.black),
+                        label: const Text(
+                          "Share",
+                          style: TextStyle(color: Colors.black),
                         ),
                       ),
                     ],
@@ -196,39 +211,45 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
             ),
+
             const SizedBox(height: 20),
           ],
         ),
-      ),
+      ]),
 
       // Gradient Bottom Navigation Bar
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.purple, Colors.pink],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
+      bottomNavigationBar: 
+      Container(
+              // width: double.infinity,
+              
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.purple, Colors.pink],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+              ),
+
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
-          elevation: 0, // Removes shadow
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_box),
-              label: "Profile",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.edit_note_outlined),
-              label: "Messages",
-            ),
-          ],
           selectedItemColor: Colors.white,
           unselectedItemColor: Colors.white70,
+          currentIndex: _currentIndex, // Use _currentIndex state
+          onTap: _onBottomNavTap, // Call method
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.contact_phone),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.edit_document),
+              label: '',
+            ),
+          ],
         ),
       ),
     );
