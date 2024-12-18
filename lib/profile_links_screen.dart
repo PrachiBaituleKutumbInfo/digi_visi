@@ -1,3 +1,4 @@
+import 'package:digi_visi/profile_image.dart';
 import 'package:flutter/material.dart';
 
 class UpdateProfileLinksScreen extends StatefulWidget {
@@ -18,7 +19,9 @@ class _UpdateProfileLinksScreenState extends State<UpdateProfileLinksScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Background Color
-      backgroundColor: const Color(0xFFD1D8E0),
+      backgroundColor:
+                const Color.fromARGB(255, 228, 224, 224), // Background color
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -115,16 +118,16 @@ class _UpdateProfileLinksScreenState extends State<UpdateProfileLinksScreen> {
                           size: 25,
                           color: Colors.black,
                         ),
-  //                      onTap: () {
-  //   if (menuItems[index]["label"] == "Update Profile Pics And Links") {
-  //     Navigator.push(
-  //       context,
-  //       MaterialPageRoute(
-  //         builder: (context) => const UpdateProfileLinksScreen(),
-  //       ),
-  //     );
-  //   }
-  // },
+                       onTap: () {
+    if (menuItems[index]["label"] == "Profile Image") {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const ProfileImageScreen(),
+        ),
+      );
+    }
+  },
                       ),
                     );
                   },

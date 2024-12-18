@@ -21,7 +21,9 @@ class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       // Background Color
-      backgroundColor: const Color(0xFFD1D8E0),
+      backgroundColor: 
+                const Color.fromARGB(255, 228, 224, 224), // Background color
+
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -69,9 +71,11 @@ class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
 
           // Cards Section
           Expanded(
+            
             child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(20.0),
               child: Container(
+                
                 padding: const EdgeInsets.all(10.0),
                 decoration: const BoxDecoration(
                   color: Colors.white,
