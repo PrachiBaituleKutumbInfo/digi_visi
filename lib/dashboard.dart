@@ -10,7 +10,7 @@ class DashboardScreen extends StatefulWidget {
 }
 
 class _DashboardScreenState extends State<DashboardScreen> {
-  int _currentIndex = 0; // Declare _currentIndex at class level
+  final int _currentIndex = 0; // Declare _currentIndex at class level
 
   void _onBottomNavTap(int index) {
     print("BottomNav Index: $index"); // Debug print
@@ -22,7 +22,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
       );
     } else {
       setState(() {
-        var _currentIndex = index;
       });
     }
   }
@@ -51,10 +50,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  
-                  Padding(
-                    padding: const EdgeInsets.only(left: 3.0),
-                    child: const Text(
+                  const Padding(
+                    padding: EdgeInsets.only(left: 8.0),
+                    child: Text(
                       "Kriti Saxsena",
                       style: TextStyle(
                         fontSize: 18,
@@ -63,7 +61,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       ),
                     ),
                   ),
-                  Align(
+                const  Align(
                     alignment: Alignment.bottomRight,
                     child: Text(
                       "Id: dg2023/01A",
@@ -110,7 +108,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   padding: const EdgeInsets.all(16),
                   child: Column(
                     children: [
-                      Row(
+                    const  Row(
                         children: [
                           CircleAvatar(
                             radius: 70,
@@ -143,26 +141,26 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                    const   SizedBox(height: 10),
                       const Divider(height: 1),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           TextButton.icon(
                             onPressed: () {},
-                            icon: Icon(
+                            icon: const Icon(
                               Icons.visibility,
                               color: Colors.black,
                             ),
-                            label: Text(
+                            label: const Text(
                               "View",
                               style: TextStyle(color: Colors.black),
                             ),
                           ),
                           TextButton.icon(
                             onPressed: () {},
-                            icon: Icon(Icons.share, color: Colors.black),
-                            label: Text(
+                            icon: const Icon(Icons.share, color: Colors.black),
+                            label: const Text(
                               "Share",
                               style: TextStyle(color: Colors.black),
                             ),
@@ -174,9 +172,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ),
               ),
             ),
-            
 
-                       const SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: Card(
@@ -218,17 +215,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
       ]),
 
       // Gradient Bottom Navigation Bar
-      bottomNavigationBar: 
-      Container(
-              // width: double.infinity,
-              
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.purple, Colors.pink],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
-              ),
+      bottomNavigationBar: Container(
+        // width: double.infinity,
+
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.purple, Colors.pink],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
 
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
@@ -242,7 +238,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.contact_phone),
+              icon: Icon(Icons.contact_page),
               label: '',
             ),
             BottomNavigationBarItem(

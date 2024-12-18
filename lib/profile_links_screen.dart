@@ -1,20 +1,17 @@
-import 'package:digi_visi/profile_links_screen.dart';
 import 'package:flutter/material.dart';
 
-class UpdateInfoScreen extends StatefulWidget {
-  const UpdateInfoScreen({super.key});
+class UpdateProfileLinksScreen extends StatefulWidget {
+  const UpdateProfileLinksScreen({super.key});
 
   @override
-  State<UpdateInfoScreen> createState() => _UpdateInfoScreenState();
+  State<UpdateProfileLinksScreen> createState() => _UpdateProfileLinksScreenState();
 }
 
-class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
+class _UpdateProfileLinksScreenState extends State<UpdateProfileLinksScreen> {
   final List<Map<String, dynamic>> menuItems = [
-    {"icon": Icons.person_2, "label": "Update Profile Pics And Links"},
-    {"icon": Icons.info, "label": "Edit Basic Information"},
-    {"icon": Icons.archive_outlined, "label": "Edit We Do Section"},
-    {"icon": Icons.contact_phone_outlined, "label": "Edit Contact Us Page"},
-    {"icon": Icons.work_outline, "label": "Update Portfolio Section"},
+    {"icon": Icons.document_scanner, "label": "Profile Image"},
+    {"icon": Icons.image, "label": "Banner Image"},
+    {"icon": Icons.link, "label": "Links"},
   ];
 
   @override
@@ -52,10 +49,10 @@ class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
             padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
             child: Row(
               children: [
-                Icon(Icons.edit_document, color: Color.fromARGB(255, 36, 7, 85), size: 20),
+                Icon(Icons.person_2, color: Color.fromARGB(255, 36, 7, 85), size: 20),
                 SizedBox(width: 8),
                 Text(
-                  "Update Your Info",
+                  "Update Profile Pics & Links",
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
@@ -85,7 +82,6 @@ class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
                 
                 child: 
                 ListView.separated(
-                
                   physics: const BouncingScrollPhysics(),
                   itemCount: menuItems.length,
                   separatorBuilder: (context, index) =>
@@ -119,16 +115,16 @@ class _UpdateInfoScreenState extends State<UpdateInfoScreen> {
                           size: 25,
                           color: Colors.black,
                         ),
-                       onTap: () {
-    if (menuItems[index]["label"] == "Update Profile Pics And Links") {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const UpdateProfileLinksScreen(),
-        ),
-      );
-    }
-  },
+  //                      onTap: () {
+  //   if (menuItems[index]["label"] == "Update Profile Pics And Links") {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => const UpdateProfileLinksScreen(),
+  //       ),
+  //     );
+  //   }
+  // },
                       ),
                     );
                   },
